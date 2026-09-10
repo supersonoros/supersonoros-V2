@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>SuperSonoros — Guitarríssima</title>
 
-<!-- GOOGLE FONTS: Bangers & Comic Neue (Bold) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
@@ -89,7 +88,6 @@
   .view{display:none;}
   .view.active{display:block;}
 
-  /* ESTRUTURA EDITORIAL MAIS SOLTA (SEM BOX DENTRO DE BOX) */
   .story-loose-wrap{
     display:flex; flex-direction:column; gap:18px; margin-bottom:20px;
   }
@@ -104,12 +102,17 @@
       flex-direction:row; padding:24px; gap:24px;
     }
   }
+
+  /* INSÍGNIA SEM BOX EM VOLTA */
   .prologue-img-wrap{
-    width:110px; height:110px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
-    background:#FFF9E6; border:3px solid var(--ink); border-radius:16px; box-shadow:3px 3px 0 var(--ink);
-    padding:6px;
+    width:clamp(90px, 22vw, 130px); height:clamp(90px, 22vw, 130px);
+    flex-shrink:0; display:flex; align-items:center; justify-content:center;
+    background:transparent; border:none; box-shadow:none; padding:0;
   }
-  .prologue-img{width:100%; height:100%; object-fit:contain; filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.15));}
+  .prologue-img{
+    width:100%; height:100%; object-fit:contain;
+    filter:drop-shadow(3px 3px 0 rgba(0,0,0,0.18));
+  }
   .comic-tag{
     position:absolute; top:-12px; left:14px; background:var(--ink); color:var(--yellow);
     font-family:'Bangers', Impact, sans-serif; font-size:12px; letter-spacing:1px; padding:3px 12px;
@@ -175,22 +178,26 @@
 
   .comic-villain-card{
     background:#fff; border:3.5px solid var(--ink); border-radius:0 18px 18px 18px; padding:14px;
-    box-shadow:4px 4px 0 var(--ink); display:flex; gap:12px; align-items:stretch;
+    box-shadow:4px 4px 0 var(--ink); display:flex; gap:14px; align-items:stretch;
     position:relative; z-index:1;
     flex:1;
     height:100%;
     transition:box-shadow .12s ease;
   }
-  /* SILHUETA ORIGINAL PRETA COM FUNDO CLARO E LIMPO */
+  
+  /* SILHUETAS SEM BOX EM VOLTA */
   .villain-avatar-box{
-    width:78px; height:100%; min-height:110px; background:#FBF6EA; border:2.5px solid var(--ink); border-radius:12px;
-    display:flex; align-items:center; justify-content:center; flex-shrink:0; padding:6px;
-    box-shadow:2.5px 2.5px 0 var(--ink);
+    width:80px; height:auto; min-height:110px; background:transparent; border:none; border-radius:0;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; padding:0;
+    box-shadow:none;
   }
   @media(min-width:400px){
-    .villain-avatar-box{width:88px;}
+    .villain-avatar-box{width:95px;}
   }
-  .villain-silhouette{width:100%; height:100%; max-height:105px; object-fit:contain; /* Mantida preta original, sem inverter */}
+  .villain-silhouette{
+    width:100%; height:100%; max-height:115px; object-fit:contain;
+    filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.12));
+  }
   
   .villain-body-box{
     flex:1;
@@ -406,8 +413,8 @@
     margin-bottom:16px;
   }
   .silhouette-avatar{
-    width:64px; height:80px; background:#fff; border-radius:10px; display:flex; align-items:center; justify-content:center;
-    border:2.5px solid var(--yellow); flex-shrink:0; padding:4px; overflow:hidden;
+    width:64px; height:80px; background:transparent; border-radius:0; display:flex; align-items:center; justify-content:center;
+    border:none; flex-shrink:0; padding:0; overflow:hidden;
   }
   .silhouette-img{width:100%; height:100%; object-fit:contain; display:block;}
 
@@ -470,7 +477,7 @@
 
   .hidden{display:none !important;}
 
-  /* MODAL COM CONTROLE DE VIEWPORT MOBILE */
+  /* MODAL */
   .modal-overlay{
     position:fixed; inset:0; background:rgba(0,0,0,.82); display:none;
     align-items:center; justify-content:center; z-index:999;
@@ -537,17 +544,16 @@
     }
   }
 
-  /* SILHUETA ORIGINAL DO DOSSIÊ SEM INVERSÃO */
   .dossier-avatar{
-    width:78px; height:98px; background:#FBF6EA; border:2.5px solid var(--ink); border-radius:10px;
-    display:flex; align-items:center; justify-content:center; padding:6px; flex-shrink:0;
+    width:85px; height:105px; background:transparent; border:none; border-radius:0;
+    display:flex; align-items:center; justify-content:center; padding:0; flex-shrink:0;
   }
   .dossier-avatar.boss-avatar{
-    width:100%; height:150px; background:#FFFFFF; border:3px solid var(--ink);
-    padding:6px;
+    width:100%; height:140px; background:transparent; border:none;
+    padding:0;
   }
   @media(min-width:480px){
-    .dossier-avatar.boss-avatar{width:180px; height:110px;}
+    .dossier-avatar.boss-avatar{width:180px; height:120px;}
   }
 
   .dossier-section{
@@ -575,7 +581,6 @@
   }
   .btn-close-bottom:active{transform:translate(2px, 2px); box-shadow:none;}
 
-  /* ---- SESSÕES: BLOQUEIO COM CADEADO.PNG ---- */
   .common-blur-wrap {
     position: relative;
     border-radius: 14px;
@@ -679,12 +684,12 @@
     <div class="tab" id="tabBtnJogos" onclick="switchTab('jogos')">Joguinhos</div>
   </div>
 
-  <!-- ===================== 1. HISTÓRIA (FLUIDA E SEM BOX DENTRO DE BOX) ===================== -->
+  <!-- ===================== 1. HISTÓRIA (LIMPO E SEM BOX DENTRO DE BOX) ===================== -->
   <div id="view-historia" class="view active">
     
     <div class="story-loose-wrap">
       
-      <!-- INÍCIO -->
+      <!-- INÍCIO: INSÍGNIA DIRETO NO CARD SEM MOLDURA INTERNA -->
       <div class="comic-prologue-card">
         <span class="comic-tag">Início · O Chamado da Liga</span>
         <div class="prologue-img-wrap">
@@ -697,13 +702,13 @@
         </div>
       </div>
 
-      <!-- AS 4 AMEAÇAS (CABEÇALHO SOLTO) -->
+      <!-- AS 4 AMEAÇAS -->
       <div class="comic-act-header">
         <span class="comic-badge-act">As 4 Ameaças</span>
         <p id="threatSubtitle" style="font-size:13.5px; color:#FFFFFF; margin:6px 0 0; text-shadow:1.5px 1.5px 0 rgba(0,0,0,0.5);"></p>
       </div>
 
-      <!-- BOXES DOSSIÊ DOS 4 VILÕES -->
+      <!-- SILHUETAS DIRETAS NO CARD DE CADA DOSSIÊ -->
       <div class="comic-villain-strip">
         
         <!-- VILÃO 1 -->
@@ -796,7 +801,7 @@
 
       </div>
 
-      <!-- BOX CHEFÃO FINAL -->
+      <!-- CHEFÃO FINAL -->
       <div class="panel clickable-boss" style="background:#171512; border:3.5px solid var(--yellow); box-shadow:5px 5px 0 var(--ink); margin:0; padding:18px;" onclick="openVillainModal('vBoss')">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
           <span style="background:var(--yellow); color:var(--ink); font-family:'Bangers', Impact, sans-serif; font-size:12.5px; letter-spacing:1px; padding:3px 10px; border-radius:999px; text-transform:uppercase;">A Conexão Sombria</span>
@@ -809,7 +814,7 @@
         <p id="bossDesc2" style="margin:0; color:#FFFFFF; font-size:13.5px; line-height:1.45;"></p>
       </div>
 
-      <!-- EPÍLOGO SOLTO COM DESTAQUE HEROICO -->
+      <!-- EPÍLOGO -->
       <div class="comic-prologue-card" style="background:#FFF9E6; border-color:var(--ink); margin-bottom:0; text-align:center; justify-content:center;">
         <div style="max-width:820px; margin:0 auto;">
           <span class="comic-tag" style="background:var(--red); color:#fff;">Epílogo · O Palco da Decisão</span>
@@ -905,7 +910,7 @@
     </div>
   </div>
 
-  <!-- ===================== 3. SESSÕES COM BLOQUEIO RETICULADO & CADEADO.PNG ===================== -->
+  <!-- ===================== 3. SESSÕES ===================== -->
   <div id="view-sessoes" class="view">
     <div id="view-sessoes-home">
       
@@ -1106,14 +1111,13 @@
     }
   }
 
-  /* SILHUETAS COM FUNDO CLARO E LIMPO, PRESERVANDO O PRETO ORIGINAL */
   const VILOES_DOSSIE = {
     v1: {
       code: "VILÃO 1",
       color: "#8E5FC7",
       img: "vilao1.png",
       isBoss: false,
-      avatarBg: "#FBF6EA",
+      avatarBg: "transparent",
       invertImg: false,
       quem: "Age tentando anular a autenticidade de quem estuda música. Faz o estudante acreditar que reproduzir rigidamente fórmulas prontas é mais conveniente do que buscar sua própria expressão.",
       motivacao: "Incômodo com a originalidade alheia, já que não consegue inventar algo genuíno. Tenta fazer com que todas as interpretações fiquem sem personalidade.",
@@ -1126,7 +1130,7 @@
       color: "#D9A62B",
       img: "vilao2.png",
       isBoss: false,
-      avatarBg: "#FBF6EA",
+      avatarBg: "transparent",
       invertImg: false,
       quem: "Uma parceria agitada onde uma parte age por impulso e a outra sempre quer se sobressair. Nenhuma delas se abre para perceber o ambiente e os parceiros.",
       motivacao: "Acreditam que o instrumentista de maior destaque é o que toca com mais intensidade de volume, tentando sufocar as dinâmicas delicadas.",
@@ -1139,7 +1143,7 @@
       color: "#E8792B",
       img: "vilao3.png",
       isBoss: false,
-      avatarBg: "#FBF6EA",
+      avatarBg: "transparent",
       invertImg: false,
       quem: "Simboliza a falsa impressão de segurança precoce. Induz o instrumentista a crer que um único acerto ocasional representa domínio maduro da música.",
       motivacao: "Quer disseminar a ideia de atalhos e sorte, tentando mascarar que a verdadeira segurança nasce da constância e dedicação ao instrumento.",
@@ -1152,7 +1156,7 @@
       color: "#3CB878",
       img: "vilao4.png",
       isBoss: false,
-      avatarBg: "#FBF6EA",
+      avatarBg: "transparent",
       invertImg: false,
       quem: "A dúvida que paralisa antes de agir. Surge silenciosamente momentos antes da entrada no palco ou da primeira contagem de tempo da banda.",
       motivacao: "Não suporta ver quem tem coragem de se expor artisticamente. Busca prender o instrumentista na hesitação prévia para que o som não ganhe vida.",
@@ -1165,7 +1169,7 @@
       color: "#E63946",
       img: "vilao5.png",
       isBoss: true,
-      avatarBg: "#FFFFFF",
+      avatarBg: "transparent",
       invertImg: false,
       quem: "A manifestação do esvaziamento musical. Cresce e se expande quando as canções perdem o cuidado, o equilíbrio e a intenção de quem as executa.",
       motivacao: "Consumir melodias frágeis e descuidadas, manipulando silenciosamente os comportamentos anteriores para fragilizar o grupo.",
@@ -1175,7 +1179,6 @@
     }
   };
 
-  /* RESETA O SCROLL DO MODAL DO DOSSIÊ PARA O TOPO */
   function openVillainModal(key){
     const v = VILOES_DOSSIE[key];
     const modalOverlay = document.getElementById("villainModal");
@@ -1573,7 +1576,6 @@
     <\/script>
     </body></html>`,
 
-    /* JOGO DA INSÍGNIA: ENQUADRADO E SEM DELAY NO MOBILE */
     insignia: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1823,11 +1825,9 @@
           ctx.imageSmoothingEnabled = true;
           ctx.imageSmoothingQuality = "high";
 
-          // 1. Fundo com cor de contraste oficial
           ctx.fillStyle = activeItem.bgColor;
           ctx.fillRect(0, 0, 1080, 1920);
 
-          // 2. Raios solares de gibi (Sunburst)
           ctx.save();
           ctx.translate(540, 750);
           ctx.fillStyle = "rgba(243, 244, 241, 0.15)";
@@ -1841,7 +1841,6 @@
           }
           ctx.restore();
 
-          // 3. Halftone Dots de fundo
           ctx.fillStyle = "rgba(17, 17, 17, 0.14)";
           for(var x=20; x<1080; x+=36){
             for(var y=20; y<1920; y+=36){
@@ -1851,14 +1850,12 @@
             }
           }
 
-          // 4. Nuvem oficial sobreposta (nuvem.png em 1080x1920)
           try{
             if(cloudImage && cloudImage.complete && cloudImage.naturalWidth > 0){
               ctx.drawImage(cloudImage, 0, 0, 1080, 1920);
             }
           }catch(e){}
 
-          // 5. Insígnia central proporcional (1:1 sem distorção e sem delay)
           try{
             if(badgeImage && badgeImage.complete && badgeImage.naturalWidth > 0){
               var maxDim = 680;
@@ -1873,7 +1870,6 @@
             }
           }catch(e){}
 
-          // 6. Nome do SuperSonoro com contorno de gibi
           ctx.save();
           ctx.font = "900 96px 'Comic Neue', Impact, 'Arial Black', sans-serif";
           ctx.textAlign = "center";
@@ -1886,7 +1882,6 @@
           ctx.fillText(currentName, 540, 1270);
           ctx.restore();
 
-          // 7. Faixas oficiais amarelas inclinadas
           function drawComicBanner(y, rot, text, fontSize){
             ctx.save();
             ctx.translate(540, y);
