@@ -103,6 +103,7 @@
     }
   }
 
+  /* INSÍGNIA SEM BOX EM VOLTA */
   .prologue-img-wrap{
     width:clamp(90px, 22vw, 130px); height:clamp(90px, 22vw, 130px);
     flex-shrink:0; display:flex; align-items:center; justify-content:center;
@@ -184,6 +185,7 @@
     transition:box-shadow .12s ease;
   }
   
+  /* SILHUETAS SEM BOX EM VOLTA */
   .villain-avatar-box{
     width:80px; height:auto; min-height:110px; background:transparent; border:none; border-radius:0;
     display:flex; align-items:center; justify-content:center; flex-shrink:0; padding:0;
@@ -491,7 +493,7 @@
 
   .hidden{display:none !important;}
 
-  /* MODAL FLEXÍVEL COM ALTURA DINÂMICA */
+  /* MODAL */
   .modal-overlay{
     position:fixed; inset:0; background:rgba(0,0,0,.82); display:none;
     align-items:center; justify-content:center; z-index:999;
@@ -499,7 +501,7 @@
   }
   .modal-overlay.show{display:flex;}
   .modal-box{
-    width:100%; max-width:420px; height:auto; max-height:92dvh;
+    width:100%; max-width:440px; height:auto; max-height:92dvh;
     background:transparent; border-radius:20px; position:relative;
     display:flex; flex-direction:column;
   }
@@ -545,6 +547,17 @@
   .dossier-header{
     display:flex; gap:14px; align-items:center; margin-bottom:14px;
     border-bottom:2px dashed #ddd; padding-bottom:12px;
+  }
+  .dossier-header.boss-header{
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+  }
+  @media(min-width:480px){
+    .dossier-header.boss-header{
+      flex-direction:row;
+      align-items:center;
+    }
   }
 
   .dossier-avatar{
@@ -1206,7 +1219,7 @@
       avatarHtml = 
         '<div class="boss-mystery-avatar">?</div>' +
         '<div>' +
-          '<h2 style="font-family:\'Bangers\', cursive;font-size:26px;margin:0 0 2px;color:var(--red);-webkit-text-stroke:0.5px var(--ink);">' + v.code + '</h2>' +
+          '<h2 style="font-family:\'Bangers\', Impact, sans-serif;font-size:26px;margin:0 0 2px;color:var(--red);-webkit-text-stroke:0.5px var(--ink);">' + v.code + '</h2>' +
           '<div style="font-size:12px;font-weight:900;color:var(--red);letter-spacing:0.5px;">SINAL CODIFICADO // IDENTIDADE SOB SIGILO ABSOLUTO</div>' +
         '</div>';
     } else {
@@ -1486,6 +1499,659 @@
     document.getElementById("view-sessoes-home").classList.remove("hidden");
     window.scrollTo(0,0);
   }
+
+  /* JOGUINHOS: 100% PRESERVADOS NA LÓGICA ORIGINAL COM APENAS A FONTE ATUALIZADA */
+  const GAMES = {
+    quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+      *{box-sizing:border-box;}
+      html,body{margin:0;padding:0;}
+      body{font-family:'Comic Neue', cursive, sans-serif;font-weight:700;background:#2C4E9B;color:#171512;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;}
+      .box-wrap{width:100%;max-width:380px;text-align:center;}
+      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;-webkit-text-stroke:1px #171512;font-size:22px;letter-spacing:1px;margin:0 0 10px;text-transform:uppercase;font-family:'Bangers', cursive;}
+      .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:14px;text-align:center;}
+      .dot{width:22px;height:22px;border-radius:50%;border:2px solid #171512;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:bold;background:#fff;margin:0 2px;font-family:'Bangers', cursive;}
+      .dot.done{background:#E63946;color:#fff;}
+      .opt{text-align:left;background:#fff;border:2px solid #171512;border-radius:8px;padding:9px 12px;margin-bottom:7px;font-weight:700;font-size:13.5px;cursor:pointer;line-height:1.35;box-shadow:2px 2px 0 #171512;}
+      .opt:last-child{margin-bottom:0;}
+      .opt:active{background:#F4C531;}
+      .btn{width:100%;padding:10px;font-weight:bold;border:2.5px solid #171512;border-radius:8px;background:#F4C531;cursor:pointer;font-size:16px;letter-spacing:1px;text-transform:uppercase;margin-top:10px;font-family:'Bangers', cursive;box-shadow:3px 3px 0 #171512;}
+      .badge{width:64px;height:64px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;border:3px solid #171512;font-family:'Bangers', cursive;}
+    </style></head><body>
+    <div class="box-wrap">
+      <h1>QUAL É O SEU SUPERPODER?</h1>
+      <div class="panel" id="app"></div>
+    </div>
+    <script>
+      var Q=[
+        {
+          t:"Diante de uma passagem musical difícil, qual é o seu primeiro instinto?",
+          o:[
+            ["Aplicar o método do Repeteco até dominar com segurança","disciplina"],
+            ["Combinar o ritmo com os outros instrumentos para não embolar","escuta"],
+            ["Adaptar a dinâmica para expressar a minha identidade pessoal","autenticidade"],
+            ["Tocar sem hesitar, enfrentando o receio de errar","iniciativa"]
+          ]
+        },
+        {
+          t:"Ao começar os ensaios com sua banda, o que você mais valoriza?",
+          o:[
+            ["Garantir que todos os instrumentos conversem em equilíbrio","escuta"],
+            ["Colocar o meu estilo e a minha personalidade na música","autenticidade"],
+            ["A disciplina de passar a música várias vezes até fixar","disciplina"],
+            ["Puxar a contagem e dar o primeiro acorde sem medo","iniciativa"]
+          ]
+        },
+        {
+          t:"Um vilão sussurra para você imitar rigorosamente outro artista. O que você faz?",
+          o:[
+            ["Rejeito a cópia: busco a minha própria voz e sonoridade","autenticidade"],
+            ["Foco em treinar com constância para construir domínio real","disciplina"],
+            ["Escuto a banda inteira para encontrarmos nosso som próprio","escuta"],
+            ["Subo no palco e toco com atitude original","iniciativa"]
+          ]
+        },
+        {
+          t:"Faltando poucos instantes para o show começar, qual pensamento guia você?",
+          o:[
+            ["Dar o primeiro passo: a confiança nasce quando começamos a tocar","iniciativa"],
+            ["Estou preparado porque me dediquei com repeteco e disciplina","disciplina"],
+            ["Vou me conectar com o som dos meus colegas de banda","escuta"],
+            ["Vou subir lá e ser único no palco","autenticidade"]
+          ]
+        },
+        {
+          t:"Qual lema representa melhor sua jornada artística?",
+          o:[
+            ["A disciplina transforma repetição consciente em confiança real","disciplina"],
+            ["Fazer música é dialogar e ouvir quem toca com você","escuta"],
+            ["Ser único e autêntico é o meu maior poder","autenticidade"],
+            ["A coragem de começar faz a música acontecer","iniciativa"]
+          ]
+        }
+      ];
+      var R={
+        autenticidade:{c:"#8E5FC7",n:"Autenticidade",e:"Ensaio 1 (vs Vilão 1)",d:"Seu superpoder é a Autenticidade: ter a coragem de assumir sua própria voz e nunca se apagar para virar uma cópia!"},
+        escuta:{c:"#D9A62B",n:"Escuta",e:"Ensaio 2 (vs Vilão 2)",d:"Seu superpoder é a Escuta: a generosidade de perceber o grupo, dosar o volume e transformar a música em diálogo coletivo."},
+        disciplina:{c:"#E8792B",n:"Disciplina",e:"Ensaio 3 (vs Vilão 3)",d:"Seu superpoder é a Disciplina: a dedicação consciente do método do Repeteco que substitui a sorte por domínio real."},
+        iniciativa:{c:"#3CB878",n:"Iniciativa",e:"Ensaio 4 (vs Vilão 4)",d:"Seu superpoder é a Iniciativa: a determinação de dar o primeiro passo e fazer o show acontecer apesar de qualquer frio na barriga!"}
+      };
+      var cur=0, sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};
+      function dots(){var h="";for(var i=0;i<Q.length;i++){h+='<span class="dot'+(i<cur?" done":"")+'">'+(i+1)+'</span>';}return h;}
+      function renderQ(){
+        var q=Q[cur];
+        var optsHtml = "";
+        for(var i=0; i<q.o.length; i++){
+          optsHtml += '<div class="opt" onclick="pick(' + i + ')">' + q.o[i][0] + '</div>';
+        }
+        document.getElementById("app").innerHTML =
+          '<div style="margin-bottom:8px;">'+dots()+'</div><h3 style="font-size:14.5px;margin:8px 0 10px;line-height:1.35;">'+q.t+'</h3>' + optsHtml;
+      }
+      function pick(idx){
+        var k = Q[cur].o[idx][1];
+        sc[k]++; cur++;
+        if(cur>=Q.length){ result(); } else { renderQ(); }
+      }
+      function result(){
+        var keys = ["autenticidade", "escuta", "disciplina", "iniciativa"];
+        var w = keys[0], maxScore = sc[w];
+        for(var i=1; i<keys.length; i++){
+          var k = keys[i];
+          if(sc[k] > maxScore){
+            maxScore = sc[k];
+            w = k;
+          }
+        }
+        var r=R[w];
+        document.getElementById("app").innerHTML =
+          '<div class="badge" style="background:'+r.c+';">'+r.n.charAt(0)+'</div>'+
+          '<h2 style="margin:2px 0 4px;font-size:22px;font-family:\\'Bangers\\', cursive;letter-spacing:1px;color:'+r.c+';-webkit-text-stroke:0.5px #171512;">'+r.n+'</h2><p style="color:#666;font-weight:bold;font-size:11.5px;margin:0 0 8px;">Desenvolvido no '+r.e+'</p>' +
+          '<p style="text-align:left;background:#F4EFE1;padding:8px 10px;border-radius:6px;border-left:3px solid '+r.c+';font-size:13px;line-height:1.4;margin:0;">'+r.d+'</p>' +
+          '<button class="btn" onclick="restart()">Refazer Quiz</button>';
+      }
+      function restart(){cur=0;sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};renderQ();}
+      renderQ();
+    <\/script>
+    </body></html>`,
+
+    insignia: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+      *{box-sizing:border-box;margin:0;padding:0;}
+      html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden;}
+      body{
+        font-family:'Comic Neue', cursive, sans-serif;
+        font-weight:700;
+        background:#111111;
+        color:#F3F4F1;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:space-between;
+        padding:8px 10px 10px;
+        height:100%;
+        height:100dvh;
+      }
+      body::before{
+        content:"";position:fixed;inset:0;
+        background-image:radial-gradient(rgba(243,244,241,0.08) 1.5px,transparent 1.5px);
+        background-size:16px 16px;pointer-events:none;
+      }
+      header{text-align:center;z-index:1;flex-shrink:0;}
+      h1{
+        font-family:'Bangers', cursive;
+        color:#FDD12E;
+        font-size:22px;
+        letter-spacing:1px;
+        text-shadow:2px 2px 0 #111111;
+        margin-bottom:1px;
+        line-height:1.1;
+      }
+      p.sub{
+        font-size:11.5px;
+        color:rgba(243,244,241,0.85);
+        letter-spacing:0.2px;
+      }
+      .insta-callout{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:6px;
+        background:var(--yellow);
+        color:var(--ink);
+        border:2px solid #111111;
+        border-radius:8px;
+        padding:4px 10px;
+        margin-top:5px;
+        font-size:11.5px;
+        font-family:'Comic Neue', cursive, sans-serif;
+        font-weight:700;
+        box-shadow:2px 2px 0 #111111;
+        line-height:1.2;
+      }
+      .preview-stage{
+        flex:1 1 0;
+        min-height:0;
+        width:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        z-index:1;
+        padding:2px 0;
+      }
+      .preview-card{
+        height:100%;
+        max-height:min(44vh, 44dvh, 320px);
+        aspect-ratio:9/16;
+        border-radius:14px;
+        overflow:hidden;
+        box-shadow:0 8px 20px rgba(0,0,0,0.8),0 0 0 2px rgba(243,244,241,0.18);
+        background:#000;
+      }
+      #storyCanvas{
+        width:100%;
+        height:100%;
+        display:block;
+      }
+
+      .control-dock{
+        position:relative;
+        z-index:2;
+        width:100%;
+        max-width:340px;
+        background:#F3F4F1;
+        border:2.5px solid #111111;
+        border-radius:14px;
+        padding:8px 10px;
+        box-shadow:0 6px 16px rgba(0,0,0,0.4),3px 3px 0 #111111;
+        display:flex;
+        flex-direction:column;
+        gap:5px;
+        flex-shrink:0;
+      }
+      .dock-label{
+        font-family:'Comic Neue', cursive, sans-serif;
+        font-weight:700;
+        font-size:10.5px;
+        letter-spacing:.4px;
+        color:#111111;
+        text-transform:uppercase;
+        text-align:center;
+      }
+      .color-bar{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:2px 2px 6px;
+      }
+      .color-dot{
+        width:25px;
+        height:25px;
+        border-radius:50%;
+        border:2px solid #111111;
+        cursor:pointer;
+        box-shadow:1.5px 1.5px 0 #111111;
+        transition:box-shadow .12s ease;
+      }
+      .color-dot.selected{
+        box-shadow:0 0 0 2.5px #111111;
+      }
+      
+      input[type="text"]{
+        width:100%;
+        background:#fff;
+        border:2px solid #111111;
+        border-radius:8px;
+        padding:5px 8px;
+        font-family:'Comic Neue', cursive, sans-serif;
+        font-weight:700;
+        font-size:12.5px;
+        color:#111111;
+        text-align:center;
+        text-transform:uppercase;
+        outline:none;
+      }
+
+      .btn-download{
+        width:100%;
+        background:#FDD12E;
+        border:2px solid #111111;
+        border-radius:10px;
+        padding:8px 6px;
+        font-family:'Comic Neue', cursive, sans-serif;
+        font-weight:700;
+        font-size:12.5px;
+        letter-spacing:0.5px;
+        text-transform:uppercase;
+        color:#111111;
+        cursor:pointer;
+        box-shadow:2px 2px 0 #111111;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:6px;
+      }
+      .btn-download:active{transform:translate(2px,2px);box-shadow:none;}
+      .icon-export{width:14px;height:14px;object-fit:contain;flex-shrink:0;}
+    </style></head><body>
+      <header>
+        <h1>GERADOR DE INSÍGNIA</h1>
+        <p class="sub">Personalize sua insígnia e compartilhe com os seus amigos</p>
+        <div class="insta-callout">
+          📸 Poste no Instagram nos Stories e marque a <strong>@guitarrissima</strong>!
+        </div>
+      </header>
+
+      <div class="preview-stage">
+        <div class="preview-card">
+          <canvas id="storyCanvas" width="1080" height="1920"></canvas>
+        </div>
+      </div>
+
+      <div class="control-dock">
+        <div>
+          <div class="dock-label">1. Escolha a cor da sua insígnia</div>
+          <div class="color-bar" id="colorsContainer"></div>
+        </div>
+        <div>
+          <div class="dock-label">2. Digite seu nome de SuperSonoro</div>
+          <input type="text" id="nameField" maxlength="14" placeholder="SEU NOME AQUI">
+        </div>
+        <button class="btn-download" onclick="exportHighResStory()">
+          <img src="exportar.png" class="icon-export" alt="Exportar" />
+          BAIXAR / COMPARTILHAR INSÍGNIA
+        </button>
+      </div>
+
+      <script>
+        var INSIGNIAS = [
+          { name:"Vermelha", badgeColor:"#FE0E31", bgColor:"#0383EC", file:"insigniavermelha.png" },
+          { name:"Rosa",     badgeColor:"#FEA1F2", bgColor:"#0383EC", file:"insigniarosa.png" },
+          { name:"Azul",     badgeColor:"#0383EC", bgColor:"#FE7C02", file:"insigniaazul.png" },
+          { name:"Roxa",     badgeColor:"#AF7AD4", bgColor:"#FE7C02", file:"insigniaroxa.png" },
+          { name:"Laranja",  badgeColor:"#FE7C02", bgColor:"#0383EC", file:"insignialaranja.png" },
+          { name:"Verde",    badgeColor:"#019742", bgColor:"#AF7AD4", file:"insigniaverde.png" }
+        ];
+
+        var activeIndex = 0;
+        var currentName = "SEU NOME AQUI";
+        
+        var preloadedBadges = [];
+        var cloudImage = new Image();
+
+        function preloadAllAssets(){
+          INSIGNIAS.forEach(function(item, idx){
+            var img = new Image();
+            img.src = item.file;
+            img.onload = function(){ renderCanvasStory(); };
+            img.onerror = function(){
+              if(this.src.indexOf(".png") !== -1 && this.src.indexOf(".png.jpg") === -1){
+                this.src = item.file.replace(".png", ".png.jpg");
+              }
+            };
+            preloadedBadges[idx] = img;
+          });
+
+          cloudImage.src = "nuvem.png";
+          cloudImage.onload = function(){ renderCanvasStory(); };
+          cloudImage.onerror = function(){
+            if(this.src.indexOf(".png") !== -1 && this.src.indexOf(".png.jpg") === -1){
+              this.src = "nuvem.png.jpg";
+            }
+          };
+        }
+
+        function init(){
+          preloadAllAssets();
+          renderColorButtons();
+          
+          document.getElementById("nameField").addEventListener("input", function(e){
+            currentName = e.target.value.trim() ? e.target.value.toUpperCase() : "SEU NOME AQUI";
+            renderCanvasStory();
+          });
+
+          renderCanvasStory();
+        }
+
+        function renderColorButtons(){
+          var container = document.getElementById("colorsContainer");
+          container.innerHTML = "";
+          INSIGNIAS.forEach(function(item, idx){
+            var dot = document.createElement("div");
+            dot.className = "color-dot" + (idx === activeIndex ? " selected" : "");
+            dot.style.background = item.badgeColor;
+            dot.title = item.name;
+            dot.onclick = function(){
+              activeIndex = idx;
+              renderColorButtons();
+              renderCanvasStory();
+            };
+            container.appendChild(dot);
+          });
+        }
+
+        /* TEXTO CURVADO ACOMPANHANDO O TOPO DA INSÍGNIA */
+        function drawCurvedText(ctx, text, centerX, centerY, radius, startAngle) {
+          ctx.save();
+          ctx.font = "900 68px 'Comic Neue', cursive, sans-serif";
+          ctx.fillStyle = "#FFFFFF";
+          ctx.strokeStyle = "#111111";
+          ctx.lineWidth = 14;
+          ctx.lineJoin = "round";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+
+          var angleStep = 0.088; 
+          var totalAngle = (text.length - 1) * angleStep;
+          var currentAngle = startAngle - (totalAngle / 2);
+
+          for (var i = 0; i < text.length; i++) {
+            var char = text[i];
+            ctx.save();
+            var x = centerX + radius * Math.cos(currentAngle);
+            var y = centerY + radius * Math.sin(currentAngle);
+            ctx.translate(x, y);
+            ctx.rotate(currentAngle + Math.PI / 2);
+            ctx.strokeText(char, 0, 0);
+            ctx.fillText(char, 0, 0);
+            ctx.restore();
+            currentAngle += angleStep;
+          }
+          ctx.restore();
+        }
+
+        function renderCanvasStory(){
+          var canvas = document.getElementById("storyCanvas");
+          var ctx = canvas.getContext("2d");
+          var activeItem = INSIGNIAS[activeIndex];
+          var badgeImage = preloadedBadges[activeIndex];
+
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = "high";
+
+          // 1. Fundo com cor de contraste oficial
+          ctx.fillStyle = activeItem.bgColor;
+          ctx.fillRect(0, 0, 1080, 1920);
+
+          // 2. Raios solares de gibi (Sunburst)
+          ctx.save();
+          ctx.translate(540, 750);
+          ctx.fillStyle = "rgba(243, 244, 241, 0.15)";
+          var numRays = 24;
+          for(var i=0; i<numRays; i++){
+            ctx.beginPath();
+            ctx.moveTo(0,0);
+            ctx.arc(0, 0, 1500, (i*2*Math.PI)/numRays, ((i*2+1)*Math.PI)/numRays);
+            ctx.lineTo(0,0);
+            ctx.fill();
+          }
+          ctx.restore();
+
+          // 3. Halftone Dots de fundo
+          ctx.fillStyle = "rgba(17, 17, 17, 0.14)";
+          for(var x=20; x<1080; x+=36){
+            for(var y=20; y<1920; y+=36){
+              ctx.beginPath();
+              ctx.arc(x, y, 3.2, 0, Math.PI*2);
+              ctx.fill();
+            }
+          }
+
+          // 4. Nuvem oficial sobreposta (nuvem.png em 1080x1920)
+          try{
+            if(cloudImage && cloudImage.complete && cloudImage.naturalWidth > 0){
+              ctx.drawImage(cloudImage, 0, 0, 1080, 1920);
+            }
+          }catch(e){}
+
+          // 5. Texto Curvado Fixo "EU AMO MÚSICA"
+          drawCurvedText(ctx, "EU AMO MÚSICA", 540, 770, 395, -Math.PI / 2);
+
+          // 6. Insígnia central proporcional (1:1 sem distorção e sem delay)
+          try{
+            if(badgeImage && badgeImage.complete && badgeImage.naturalWidth > 0){
+              var maxDim = 680;
+              var imgW = badgeImage.naturalWidth;
+              var imgH = badgeImage.naturalHeight;
+              var ratio = Math.min(maxDim / imgW, maxDim / imgH);
+              var renderW = imgW * ratio;
+              var renderH = imgH * ratio;
+              var posX = (1080 - renderW) / 2;
+              var posY = 430 + (maxDim - renderH) / 2;
+              ctx.drawImage(badgeImage, posX, posY, renderW, renderH);
+            }
+          }catch(e){}
+
+          // 7. Nome do SuperSonoro com contorno de gibi
+          ctx.save();
+          ctx.font = "900 96px 'Comic Neue', Impact, 'Arial Black', sans-serif";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.lineWidth = 18;
+          ctx.strokeStyle = "#111111";
+          ctx.lineJoin = "round";
+          ctx.strokeText(currentName, 540, 1270);
+          ctx.fillStyle = "#F3F4F1";
+          ctx.fillText(currentName, 540, 1270);
+          ctx.restore();
+
+          // 8. Faixas amarelas oficiais: Mantendo a frase original e as hashtags
+          function drawComicBanner(y, rot, text, fontSize){
+            ctx.save();
+            ctx.translate(540, y);
+            ctx.rotate((rot*Math.PI)/180);
+            ctx.fillStyle = "#111111";
+            ctx.fillRect(-620 + 14, -70 + 14, 1240, 140);
+            ctx.fillStyle = "#FDD12E";
+            ctx.strokeStyle = "#111111";
+            ctx.lineWidth = 14;
+            ctx.fillRect(-620, -70, 1240, 140);
+            ctx.strokeRect(-620, -70, 1240, 140);
+            ctx.fillStyle = "#111111";
+            ctx.font = "900 " + fontSize + "px 'Comic Neue', Impact, 'Arial Black', sans-serif";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(text, 0, 4);
+            ctx.restore();
+          }
+          drawComicBanner(1550, -2.4, "MINHA INSÍGNIA DE SUPERSONORO!", 46);
+          drawComicBanner(1730, 1.8, "#SUPERSONOROS #GUITARRÍSSIMA", 48);
+        }
+
+        function exportHighResStory(){
+          var canvas = document.getElementById("storyCanvas");
+          var safeName = currentName.toLowerCase().replace(/[^a-z0-9]/g, "-");
+          canvas.toBlob(function(blob){
+            var file = new File([blob], "story-supersonoro-" + safeName + ".png", { type:"image/png" });
+            if(navigator.canShare && navigator.canShare({ files:[file] })){
+              navigator.share({
+                files:[file],
+                title:"Minha Insígnia SuperSonoros",
+                text:"Minha insígnia oficial da Liga SuperSonoros na Guitarríssima!"
+              }).catch(function(){});
+            } else {
+              var a = document.createElement("a");
+              a.download = "story-supersonoro-" + safeName + ".png";
+              a.href = URL.createObjectURL(blob);
+              a.click();
+            }
+          }, "image/png");
+        }
+
+        init();
+      <\/script>
+    </body></html>`,
+
+    batalha: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+      *{box-sizing:border-box;}
+      body{font-family:'Comic Neue', cursive, sans-serif;font-weight:700;background:#171512;color:#fff;margin:0;padding:12px;text-align:center;}
+      .box{background:#23201d;border:3.5px solid #F4C531;border-radius:14px;padding:14px;max-width:390px;margin:0 auto;}
+      h1{color:#FF5A79;font-size:20px;letter-spacing:1px;margin:0 0 8px;text-transform:uppercase;font-family:'Bangers', cursive;-webkit-text-stroke:0.5px #000;}
+      .hp-bar{background:#444;border-radius:10px;height:16px;overflow:hidden;margin-bottom:8px;border:2px solid #fff;}
+      .hp-fill{background:#E63946;height:100%;width:100%;transition:width .2s;}
+      .boss-sprite{font-size:44px;margin:4px 0;}
+      .prompt{background:#fff;color:#171512;padding:10px 12px;border-radius:8px;font-weight:900;font-size:13px;margin-bottom:10px;line-height:1.4;}
+      .grid{display:grid;grid-template-columns:1fr;gap:7px;}
+      .btn-atk{padding:10px 8px;border:2px solid #171512;border-radius:8px;font-family:'Comic Neue', cursive;font-weight:700;font-size:12px;cursor:pointer;color:#fff;text-align:left;line-height:1.35;box-shadow:2px 2px 0 #000;}
+      .status{font-size:14px;font-family:'Bangers', cursive;letter-spacing:0.8px;margin-top:8px;min-height:16px;color:#F4C531;text-transform:uppercase;}
+    </style></head><body>
+    <div class="box">
+      <h1>Devorador de Sons</h1>
+      <div class="hp-bar"><div class="hp-fill" id="hp"></div></div>
+      <div class="boss-sprite" id="boss">👾</div>
+      <div class="prompt" id="prompt">Carregando desafio...</div>
+      <div class="grid" id="actionsBox"></div>
+      <div class="status" id="status">Prepare seus acordes!</div>
+    </div>
+    <script>
+      let bossHp=100, curNeeded="", lastIndex=-1;
+      
+      var CHALLENGES = [
+        {
+          threat: "O vilão sussurra: 'Copie idêntico ao original, ninguém liga pra sua identidade!'",
+          needed: "autenticidade",
+          options: [
+            { id: "autenticidade", text: "Defendo minha própria voz e toco do meu jeito!", color: "#8E5FC7" },
+            { id: "escuta",        text: "Toco mais alto para abafar a banda inteira.",   color: "#D9A62B" },
+            { id: "disciplina",    text: "Deixo para tentar acertar apenas no show.",    color: "#E8792B" },
+            { id: "iniciativa",    text: "Fico esperando a dúvida passar para começar.", color: "#3CB878" }
+          ]
+        },
+        {
+          threat: "As Irmãs Decibel atacam: o palco virou um caos onde todos competem por volume!",
+          needed: "escuta",
+          options: [
+            { id: "escuta",        text: "Escuto o grupo com atenção e equilibro meu volume!", color: "#D9A62B" },
+            { id: "autenticidade", text: "Apenas copio um solo pronto da internet.",          color: "#8E5FC7" },
+            { id: "disciplina",    text: "Toco uma vez por acaso e já considero pronto.",    color: "#E8792B" },
+            { id: "iniciativa",    text: "Fico paralisado com receio de errar o acorde.",     color: "#3CB878" }
+          ]
+        },
+        {
+          threat: "O Ensaiador tenta te iludir: 'Acertou uma vez, já chega! No palco a sorte resolve!'",
+          needed: "disciplina",
+          options: [
+            { id: "disciplina",    text: "Uso o Repeteco consciente até conquistar segurança!", color: "#E8792B" },
+            { id: "autenticidade", text: "Toco sem identidade própria só para terminar logo.", color: "#8E5FC7" },
+            { id: "escuta",        text: "Toco no volume máximo sem me importar com a banda.", color: "#D9A62B" },
+            { id: "iniciativa",    text: "Desisto antes mesmo de subir ao palco.",             color: "#3CB878" }
+          ]
+        },
+        {
+          threat: "Véspera planta a dúvida: 'E se der branco na frente de todos? Melhor não tocar hoje...'",
+          needed: "iniciativa",
+          options: [
+            { id: "iniciativa",    text: "Dou o primeiro acorde e ajo apesar do nervosismo!", color: "#3CB878" },
+            { id: "autenticidade", text: "Tento copiar rigidamente o guitarrista famoso.",   color: "#8E5FC7" },
+            { id: "escuta",        text: "Disputo para aparecer mais do que meus colegas.",   color: "#D9A62B" },
+            { id: "disciplina",    text: "Acredito que talento substitui todo o ensaio.",    color: "#E8792B" }
+          ]
+        }
+      ];
+
+      function renderTurn() {
+        if(bossHp <= 0) {
+          document.getElementById("boss").textContent = "💥🎉";
+          document.getElementById("prompt").textContent = "VITÓRIA DA LIGA! O SOM FOI SALVO!";
+          document.getElementById("status").textContent = "Os 4 superpoderes derrotaram o Devorador de Sons!";
+          document.getElementById("actionsBox").innerHTML = "";
+          return;
+        }
+
+        let nextIdx;
+        do {
+          nextIdx = Math.floor(Math.random() * CHALLENGES.length);
+        } while (nextIdx === lastIndex);
+        lastIndex = nextIdx;
+
+        var current = CHALLENGES[nextIdx];
+        curNeeded = current.needed;
+        document.getElementById("prompt").textContent = current.threat;
+
+        var box = document.getElementById("actionsBox");
+        box.innerHTML = "";
+        
+        var shuffledOpts = current.options.slice();
+        shuffledOpts.sort(function() { return 0.5 - Math.random(); });
+
+        shuffledOpts.forEach(function(opt) {
+          var btn = document.createElement("button");
+          btn.className = "btn-atk";
+          btn.style.background = opt.color;
+          btn.textContent = opt.text;
+          btn.onclick = function() { attack(opt.id); };
+          box.appendChild(btn);
+        });
+      }
+
+      function attack(choice) {
+        if(bossHp <= 0) return;
+        if(choice === curNeeded) {
+          bossHp -= 25;
+          if(bossHp < 0) bossHp = 0;
+          document.getElementById("hp").style.width = bossHp + "%";
+          document.getElementById("status").textContent = "ACORDE PERFEITO! -25% HP";
+          document.getElementById("boss").textContent = "⚡👾⚡";
+          setTimeout(function() { if(bossHp > 0) document.getElementById("boss").textContent = "👾"; }, 250);
+        } else {
+          document.getElementById("status").textContent = "Atitude inadequada! Responda com a virtude certa!";
+        }
+        setTimeout(renderTurn, 450);
+      }
+
+      renderTurn();
+    <\/script>
+    </body></html>`
+  };
 
   function openGame(key){
     const frame = document.getElementById("gameFrame");
