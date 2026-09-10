@@ -1485,7 +1485,7 @@
     window.scrollTo(0,0);
   }
 
-  /* JOGUINHOS COM SCRIPT ROBUSTO E FONTES CERTAS */
+  /* JOGUINHOS COM PARSE LIMPO E ZERO CONFLITO DE ASPAS */
   const GAMES = {
     quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1501,8 +1501,8 @@
       .dot{width:24px;height:24px;border-radius:50%;border:2px solid #171512;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:bold;background:#fff;margin:0 3px;font-family:'Bangers', cursive;}
       .dot.done{background:#E63946;color:#fff;}
       .q-title{font-size:15px;line-height:1.4;margin:10px 0 12px;font-weight:700;}
-      .opt{text-align:left;background:#fff;border:2.5px solid #171512;border-radius:10px;padding:10px 12px;margin-bottom:8px;font-weight:700;font-size:13.5px;cursor:pointer;line-height:1.35;box-shadow:2px 2px 0 #171512;transition:transform 0.1s;}
-      .opt:last-child{margin-bottom:0;}
+      .opts-container{display:flex;flex-direction:column;gap:8px;}
+      .opt{text-align:left;background:#fff;border:2.5px solid #171512;border-radius:10px;padding:10px 12px;font-weight:700;font-size:13.5px;cursor:pointer;line-height:1.35;box-shadow:2px 2px 0 #171512;transition:transform 0.1s;}
       .opt:active{background:#F4C531;transform:translate(2px,2px);box-shadow:none;}
       .btn{width:100%;padding:12px;font-weight:bold;border:3px solid #171512;border-radius:12px;background:#F4C531;cursor:pointer;font-size:16px;letter-spacing:1px;text-transform:uppercase;margin-top:12px;font-family:'Bangers', cursive;box-shadow:3px 3px 0 #171512;}
       .btn:active{transform:translate(2px,2px);box-shadow:none;}
@@ -1510,53 +1510,53 @@
     </style></head><body>
     <div class="box-wrap">
       <h1>QUAL É O SEU SUPERPODER?</h1>
-      <div class="panel" id="app">Carregando perguntas...</div>
+      <div class="panel" id="app"></div>
     </div>
     <script>
       var Q=[
         {
           t:"Diante de uma passagem musical difícil, qual é o seu primeiro instinto?",
           o:[
-            ["Aplicar o método do Repeteco até dominar com segurança","disciplina"],
-            ["Combinar o ritmo com os outros instrumentos para não embolar","escuta"],
-            ["Adaptar a dinâmica para expressar a minha identidade pessoal","autenticidade"],
-            ["Tocar sem hesitar, enfrentando o receio de errar","iniciativa"]
+            {txt:"Aplicar o método do Repeteco até dominar com segurança", key:"disciplina"},
+            {txt:"Combinar o ritmo com os outros instrumentos para não embolar", key:"escuta"},
+            {txt:"Adaptar a dinâmica para expressar a minha identidade pessoal", key:"autenticidade"},
+            {txt:"Tocar sem hesitar, enfrentando o receio de errar", key:"iniciativa"}
           ]
         },
         {
           t:"Ao começar os ensaios com sua banda, o que você mais valoriza?",
           o:[
-            ["Garantir que todos os instrumentos conversem em equilíbrio","escuta"],
-            ["Colocar o meu estilo e a minha personalidade na música","autenticidade"],
-            ["A disciplina de passar a música várias vezes até fixar","disciplina"],
-            ["Puxar a contagem e dar o primeiro acorde sem medo","iniciativa"]
+            {txt:"Garantir que todos os instrumentos conversem em equilíbrio", key:"escuta"},
+            {txt:"Colocar o meu estilo e a minha personalidade na música", key:"autenticidade"},
+            {txt:"A disciplina de passar a música várias vezes até fixar", key:"disciplina"},
+            {txt:"Puxar a contagem e dar o primeiro acorde sem medo", key:"iniciativa"}
           ]
         },
         {
           t:"Um vilão sussurra para você imitar rigorosamente outro artista. O que você faz?",
           o:[
-            ["Rejeito a cópia: busco a minha própria voz e sonoridade","autenticidade"],
-            ["Foco em treinar com constância para construir domínio real","disciplina"],
-            ["Escuto a banda inteira para encontrarmos nosso som próprio","escuta"],
-            ["Subo no palco e toco com atitude original","iniciativa"]
+            {txt:"Rejeito a cópia: busco a minha própria voz e sonoridade", key:"autenticidade"},
+            {txt:"Foco em treinar com constância para construir domínio real", key:"disciplina"},
+            {txt:"Escuto a banda inteira para encontrarmos nosso som próprio", key:"escuta"},
+            {txt:"Subo no palco e toco com atitude original", key:"iniciativa"}
           ]
         },
         {
           t:"Faltando poucos instantes para o show começar, qual pensamento guia você?",
           o:[
-            ["Dar o primeiro passo: a confiança nasce quando começamos a tocar","iniciativa"],
-            ["Estou preparado porque me dediquei com repeteco e disciplina","disciplina"],
-            ["Vou me conectar com o som dos meus colegas de banda","escuta"],
-            ["Vou subir lá e ser único no palco","autenticidade"]
+            {txt:"Dar o primeiro passo: a confiança nasce quando começamos a tocar", key:"iniciativa"},
+            {txt:"Estou preparado porque me dediquei com repeteco e disciplina", key:"disciplina"},
+            {txt:"Vou me conectar com o som dos meus colegas de banda", key:"escuta"},
+            {txt:"Vou subir lá e ser único no palco", key:"autenticidade"}
           ]
         },
         {
           t:"Qual lema representa melhor sua jornada artística?",
           o:[
-            ["A disciplina transforma repetição consciente em confiança real","disciplina"],
-            ["Fazer música é dialogar e ouvir quem toca com você","escuta"],
-            ["Ser único e autêntico é o meu maior poder","autenticidade"],
-            ["A coragem de começar faz a música acontecer","iniciativa"]
+            {txt:"A disciplina transforma repetição consciente em confiança real", key:"disciplina"},
+            {txt:"Fazer música é dialogar e ouvir quem toca com você", key:"escuta"},
+            {txt:"Ser único e autêntico é o meu maior poder", key:"autenticidade"},
+            {txt:"A coragem de começar faz a música acontecer", key:"iniciativa"}
           ]
         }
       ];
@@ -1567,21 +1567,48 @@
         iniciativa:{c:"#3CB878",n:"Iniciativa",e:"Ensaio 4 (vs Vilão 4)",d:"Seu superpoder é a Iniciativa: a determinação de dar o primeiro passo e fazer o show acontecer apesar de qualquer frio na barriga!"}
       };
       var cur=0, sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};
-      function dots(){var h="";for(var i=0;i<Q.length;i++){h+='<span class="dot'+(i<cur?" done":"")+'">'+(i+1)+'</span>';}return h;}
+
       function renderQ(){
         var el = document.getElementById("app");
         if(!el) return;
-        var q=Q[cur];
-        var optsHtml = "";
-        for(var i=0; i<q.o.length; i++){
-          optsHtml += '<div class="opt" onclick="pick(\\'' + q.o[i][1] + '\\')">' + q.o[i][0] + '</div>';
+        el.innerHTML = "";
+
+        // Indicador de progresso
+        var dotsBox = document.createElement("div");
+        dotsBox.style.marginBottom = "8px";
+        for(var i=0; i<Q.length; i++){
+          var dot = document.createElement("span");
+          dot.className = "dot" + (i<cur ? " done" : "");
+          dot.textContent = (i+1);
+          dotsBox.appendChild(dot);
         }
-        el.innerHTML = '<div style="margin-bottom:8px;">'+dots()+'</div><div class="q-title">'+q.t+'</div>' + optsHtml;
+        el.appendChild(dotsBox);
+
+        // Pergunta
+        var q = Q[cur];
+        var title = document.createElement("div");
+        title.className = "q-title";
+        title.textContent = q.t;
+        el.appendChild(title);
+
+        // Alternativas criadas sem conflito de aspas
+        var optsBox = document.createElement("div");
+        optsBox.className = "opts-container";
+        q.o.forEach(function(item){
+          var btn = document.createElement("div");
+          btn.className = "opt";
+          btn.textContent = item.txt;
+          btn.onclick = function(){ pick(item.key); };
+          optsBox.appendChild(btn);
+        });
+        el.appendChild(optsBox);
       }
+
       function pick(k){
         sc[k]++; cur++;
         if(cur>=Q.length){ result(); } else { renderQ(); }
       }
+
       function result(){
         var keys = ["autenticidade", "escuta", "disciplina", "iniciativa"];
         var w = keys[0], maxScore = sc[w];
@@ -1597,14 +1624,16 @@
           '<h2 style="margin:2px 0 4px;font-size:22px;font-family:\'Bangers\', cursive;letter-spacing:1px;color:'+r.c+';-webkit-text-stroke:0.5px #171512;">'+r.n+'</h2>' +
           '<p style="color:#555;font-weight:bold;font-size:12px;margin:0 0 10px;">Desenvolvido no '+r.e+'</p>' +
           '<p style="text-align:left;background:#F4EFE1;padding:10px 12px;border-radius:8px;border-left:4px solid '+r.c+';font-size:13.5px;line-height:1.45;margin:0;">'+r.d+'</p>' +
-          '<button class="btn" onclick="restart()">Refazer Quiz</button>';
+          '<button class="btn" id="btnRestart">Refazer Quiz</button>';
+
+        document.getElementById("btnRestart").onclick = restart;
       }
-      function restart(){cur=0;sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};renderQ();}
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', renderQ);
-      } else {
-        renderQ();
+
+      function restart(){
+        cur=0; sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0}; renderQ();
       }
+
+      renderQ();
     <\/script>
     </body></html>`,
 
