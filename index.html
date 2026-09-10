@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>SuperSonoros — Guitarríssima</title>
 
-<!-- GOOGLE FONTS: Bangers & Comic Neue (Bold) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
@@ -19,7 +18,7 @@
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;overflow-x:hidden;}
   body{
-    font-family:'Comic Neue', Impact, 'Arial Black', sans-serif;
+    font-family:'Comic Neue', cursive, sans-serif;
     font-weight:700;
     background:var(--red); color:var(--ink); min-height:100vh; min-height:100dvh;
     display:flex; justify-content:center; padding:24px 12px calc(60px + env(safe-area-inset-bottom));
@@ -104,6 +103,7 @@
     }
   }
 
+  /* INSÍGNIA SEM BOX EM VOLTA */
   .prologue-img-wrap{
     width:clamp(90px, 22vw, 130px); height:clamp(90px, 22vw, 130px);
     flex-shrink:0; display:flex; align-items:center; justify-content:center;
@@ -185,6 +185,7 @@
     transition:box-shadow .12s ease;
   }
   
+  /* SILHUETAS SEM BOX EM VOLTA */
   .villain-avatar-box{
     width:80px; height:auto; min-height:110px; background:transparent; border:none; border-radius:0;
     display:flex; align-items:center; justify-content:center; flex-shrink:0; padding:0;
@@ -337,6 +338,7 @@
   .arrow{font-size:20px; font-weight:bold; color:var(--ink); transition:transform .12s ease; flex-shrink:0;}
   .item-card:hover .arrow{transform:translateX(3px);}
 
+  /* AVISO DE INGRESSOS INTEGRADO NA LATERAL DIREITA DO CARD */
   .ens-header-card {
     display: flex;
     flex-direction: column;
@@ -362,6 +364,7 @@
     max-width: 380px;
   }
 
+  /* CARD DA SILHUETA NO ENSAIO COM FUNDO AMARELO CLARO DE ALTO CONTRASTE */
   .silhouette-card{
     display:flex; gap:14px; align-items:center;
     background: #FFF9E6; color: var(--ink);
@@ -420,7 +423,7 @@
   }
   .lineup-name{flex:1; font-weight:700;}
 
-  .info-item{display:block; margin-bottom:8px; font-size:13.5px; line-height:1.45;}
+  .info-item{display:block; margin-bottom:10px; font-size:13.5px; line-height:1.45;}
   .info-item:last-child{margin-bottom:0;}
 
   .recap-box{background:#F4EFE1; border-left:4px solid var(--ink); border-radius:8px; padding:14px; font-size:13.5px; line-height:1.5; color:#333;}
@@ -545,12 +548,24 @@
     display:flex; gap:14px; align-items:center; margin-bottom:14px;
     border-bottom:2px dashed #ddd; padding-bottom:12px;
   }
+  .dossier-header.boss-header{
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+  }
+  @media(min-width:480px){
+    .dossier-header.boss-header{
+      flex-direction:row;
+      align-items:center;
+    }
+  }
 
   .dossier-avatar{
     width:85px; height:105px; background:transparent; border:none; border-radius:0;
     display:flex; align-items:center; justify-content:center; padding:0; flex-shrink:0;
   }
 
+  /* BLOCO DE SIGILO DO CHEFÃO FINAL */
   .boss-mystery-avatar {
     width: 80px; height: 90px;
     background: #171512;
@@ -561,7 +576,7 @@
     justify-content: center;
     color: var(--yellow);
     font-family: 'Bangers', Impact, sans-serif;
-    font-size: 42px;
+    font-size: 44px;
     box-shadow: 2.5px 2.5px 0 var(--ink);
     flex-shrink: 0;
   }
@@ -591,7 +606,6 @@
   }
   .btn-close-bottom:active{transform:translate(2px, 2px); box-shadow:none;}
 
-  /* SESSÕES: BLOQUEIO */
   .common-blur-wrap {
     position: relative;
     border-radius: 14px;
@@ -700,7 +714,7 @@
     
     <div class="story-loose-wrap">
       
-      <!-- INÍCIO -->
+      <!-- INÍCIO: INSÍGNIA DIRETO NO CARD -->
       <div class="comic-prologue-card">
         <span class="comic-tag">Início · O Chamado da Liga</span>
         <div class="prologue-img-wrap">
@@ -719,7 +733,7 @@
         <p id="threatSubtitle" style="font-size:13.5px; color:#FFFFFF; margin:6px 0 0; text-shadow:1.5px 1.5px 0 rgba(0,0,0,0.5);"></p>
       </div>
 
-      <!-- DOSSIÊS -->
+      <!-- SILHUETAS DIRETAS NO CARD DE CADA DOSSIÊ -->
       <div class="comic-villain-strip">
         
         <!-- VILÃO 1 -->
@@ -887,6 +901,7 @@
               <span id="ensLocation"></span>
             </div>
           </div>
+          <!-- AVISO DE INGRESSOS INTEGRADO NA LATERAL DIREITA DO CARD -->
           <div id="ensSpecialBadgeBox"></div>
         </div>
       </div>
@@ -894,7 +909,7 @@
       <div class="grid-detail-cols">
         <div class="panel" style="margin-bottom:0;">
           
-          <!-- SILHUETA COM ALTO CONTRASTE -->
+          <!-- SILHUETA COM FUNDO CLARO DE ALTO CONTRASTE -->
           <div class="silhouette-card">
             <div class="silhouette-avatar">
               <img id="ensVillainImg" src="" alt="Silhueta do Vilão" class="silhouette-img" />
@@ -1485,28 +1500,26 @@
     window.scrollTo(0,0);
   }
 
-  /* JOGUINHOS COM PARSE LIMPO E ZERO CONFLITO DE ASPAS */
+  /* JOGUINHOS 100% COM A ESTRUTURA ORIGINAL QUE FUNCIONAVA */
   const GAMES = {
-    quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <style>
       *{box-sizing:border-box;}
-      html,body{width:100%;height:100%;margin:0;padding:0;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-      body{font-family:'Comic Neue', cursive, sans-serif;font-weight:700;background:#2C4E9B;color:#171512;padding:16px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;}
-      .box-wrap{width:100%;max-width:390px;text-align:center;}
-      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;-webkit-text-stroke:1px #171512;font-size:22px;letter-spacing:1px;margin:0 0 12px;text-transform:uppercase;font-family:'Bangers', cursive;}
-      .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:18px;box-shadow:4px 4px 0 #171512;padding:16px;text-align:center;}
-      .dot{width:24px;height:24px;border-radius:50%;border:2px solid #171512;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:bold;background:#fff;margin:0 3px;font-family:'Bangers', cursive;}
+      html,body{margin:0;padding:0;}
+      body{font-family:'Comic Neue', cursive, sans-serif;font-weight:700;background:#2C4E9B;color:#171512;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;}
+      .box-wrap{width:100%;max-width:380px;text-align:center;}
+      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;-webkit-text-stroke:1px #171512;font-size:22px;letter-spacing:1px;margin:0 0 10px;text-transform:uppercase;font-family:'Bangers', cursive;}
+      .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:14px;text-align:center;}
+      .dot{width:22px;height:22px;border-radius:50%;border:2px solid #171512;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:bold;background:#fff;margin:0 2px;font-family:'Bangers', cursive;}
       .dot.done{background:#E63946;color:#fff;}
-      .q-title{font-size:15px;line-height:1.4;margin:10px 0 12px;font-weight:700;}
-      .opts-container{display:flex;flex-direction:column;gap:8px;}
-      .opt{text-align:left;background:#fff;border:2.5px solid #171512;border-radius:10px;padding:10px 12px;font-weight:700;font-size:13.5px;cursor:pointer;line-height:1.35;box-shadow:2px 2px 0 #171512;transition:transform 0.1s;}
-      .opt:active{background:#F4C531;transform:translate(2px,2px);box-shadow:none;}
-      .btn{width:100%;padding:12px;font-weight:bold;border:3px solid #171512;border-radius:12px;background:#F4C531;cursor:pointer;font-size:16px;letter-spacing:1px;text-transform:uppercase;margin-top:12px;font-family:'Bangers', cursive;box-shadow:3px 3px 0 #171512;}
-      .btn:active{transform:translate(2px,2px);box-shadow:none;}
-      .badge{width:70px;height:70px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:900;color:#fff;border:3.5px solid #171512;box-shadow:3px 3px 0 #171512;font-family:'Bangers', cursive;}
+      .opt{text-align:left;background:#fff;border:2px solid #171512;border-radius:8px;padding:9px 12px;margin-bottom:7px;font-weight:700;font-size:13.5px;cursor:pointer;line-height:1.35;box-shadow:2px 2px 0 #171512;}
+      .opt:last-child{margin-bottom:0;}
+      .opt:active{background:#F4C531;}
+      .btn{width:100%;padding:10px;font-weight:bold;border:2.5px solid #171512;border-radius:8px;background:#F4C531;cursor:pointer;font-size:16px;letter-spacing:1px;text-transform:uppercase;margin-top:10px;font-family:'Bangers', cursive;box-shadow:3px 3px 0 #171512;}
+      .badge{width:64px;height:64px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;border:3px solid #171512;font-family:'Bangers', cursive;}
     </style></head><body>
     <div class="box-wrap">
       <h1>QUAL É O SEU SUPERPODER?</h1>
@@ -1517,46 +1530,46 @@
         {
           t:"Diante de uma passagem musical difícil, qual é o seu primeiro instinto?",
           o:[
-            {txt:"Aplicar o método do Repeteco até dominar com segurança", key:"disciplina"},
-            {txt:"Combinar o ritmo com os outros instrumentos para não embolar", key:"escuta"},
-            {txt:"Adaptar a dinâmica para expressar a minha identidade pessoal", key:"autenticidade"},
-            {txt:"Tocar sem hesitar, enfrentando o receio de errar", key:"iniciativa"}
+            ["Aplicar o método do Repeteco até dominar com segurança","disciplina"],
+            ["Combinar o ritmo com os outros instrumentos para não embolar","escuta"],
+            ["Adaptar a dinâmica para expressar a minha identidade pessoal","autenticidade"],
+            ["Tocar sem hesitar, enfrentando o receio de errar","iniciativa"]
           ]
         },
         {
           t:"Ao começar os ensaios com sua banda, o que você mais valoriza?",
           o:[
-            {txt:"Garantir que todos os instrumentos conversem em equilíbrio", key:"escuta"},
-            {txt:"Colocar o meu estilo e a minha personalidade na música", key:"autenticidade"},
-            {txt:"A disciplina de passar a música várias vezes até fixar", key:"disciplina"},
-            {txt:"Puxar a contagem e dar o primeiro acorde sem medo", key:"iniciativa"}
+            ["Garantir que todos os instrumentos conversem em equilíbrio","escuta"],
+            ["Colocar o meu estilo e a minha personalidade na música","autenticidade"],
+            ["A disciplina de passar a música várias vezes até fixar","disciplina"],
+            ["Puxar a contagem e dar o primeiro acorde sem medo","iniciativa"]
           ]
         },
         {
           t:"Um vilão sussurra para você imitar rigorosamente outro artista. O que você faz?",
           o:[
-            {txt:"Rejeito a cópia: busco a minha própria voz e sonoridade", key:"autenticidade"},
-            {txt:"Foco em treinar com constância para construir domínio real", key:"disciplina"},
-            {txt:"Escuto a banda inteira para encontrarmos nosso som próprio", key:"escuta"},
-            {txt:"Subo no palco e toco com atitude original", key:"iniciativa"}
+            ["Rejeito a cópia: busco a minha própria voz e sonoridade","autenticidade"],
+            ["Foco em treinar com constância para construir domínio real","disciplina"],
+            ["Escuto a banda inteira para encontrarmos nosso som próprio","escuta"],
+            ["Subo no palco e toco com atitude original","iniciativa"]
           ]
         },
         {
           t:"Faltando poucos instantes para o show começar, qual pensamento guia você?",
           o:[
-            {txt:"Dar o primeiro passo: a confiança nasce quando começamos a tocar", key:"iniciativa"},
-            {txt:"Estou preparado porque me dediquei com repeteco e disciplina", key:"disciplina"},
-            {txt:"Vou me conectar com o som dos meus colegas de banda", key:"escuta"},
-            {txt:"Vou subir lá e ser único no palco", key:"autenticidade"}
+            ["Dar o primeiro passo: a confiança nasce quando começamos a tocar","iniciativa"],
+            ["Estou preparado porque me dediquei com repeteco e disciplina","disciplina"],
+            ["Vou me conectar com o som dos meus colegas de banda","escuta"],
+            ["Vou subir lá e ser único no palco","autenticidade"]
           ]
         },
         {
           t:"Qual lema representa melhor sua jornada artística?",
           o:[
-            {txt:"A disciplina transforma repetição consciente em confiança real", key:"disciplina"},
-            {txt:"Fazer música é dialogar e ouvir quem toca com você", key:"escuta"},
-            {txt:"Ser único e autêntico é o meu maior poder", key:"autenticidade"},
-            {txt:"A coragem de começar faz a música acontecer", key:"iniciativa"}
+            ["A disciplina transforma repetição consciente em confiança real","disciplina"],
+            ["Fazer música é dialogar e ouvir quem toca com você","escuta"],
+            ["Ser único e autêntico é o meu maior poder","autenticidade"],
+            ["A coragem de começar faz a música acontecer","iniciativa"]
           ]
         }
       ];
@@ -1567,72 +1580,39 @@
         iniciativa:{c:"#3CB878",n:"Iniciativa",e:"Ensaio 4 (vs Vilão 4)",d:"Seu superpoder é a Iniciativa: a determinação de dar o primeiro passo e fazer o show acontecer apesar de qualquer frio na barriga!"}
       };
       var cur=0, sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};
-
+      function dots(){var h="";for(var i=0;i<Q.length;i++){h+='<span class="dot'+(i<cur?" done":"")+'">'+(i+1)+'</span>';}return h;}
       function renderQ(){
-        var el = document.getElementById("app");
-        if(!el) return;
-        el.innerHTML = "";
-
-        // Indicador de progresso
-        var dotsBox = document.createElement("div");
-        dotsBox.style.marginBottom = "8px";
-        for(var i=0; i<Q.length; i++){
-          var dot = document.createElement("span");
-          dot.className = "dot" + (i<cur ? " done" : "");
-          dot.textContent = (i+1);
-          dotsBox.appendChild(dot);
+        var q=Q[cur];
+        var optsHtml = "";
+        for(var i=0; i<q.o.length; i++){
+          optsHtml += '<div class="opt" onclick="pick(' + i + ')">' + q.o[i][0] + '</div>';
         }
-        el.appendChild(dotsBox);
-
-        // Pergunta
-        var q = Q[cur];
-        var title = document.createElement("div");
-        title.className = "q-title";
-        title.textContent = q.t;
-        el.appendChild(title);
-
-        // Alternativas criadas sem conflito de aspas
-        var optsBox = document.createElement("div");
-        optsBox.className = "opts-container";
-        q.o.forEach(function(item){
-          var btn = document.createElement("div");
-          btn.className = "opt";
-          btn.textContent = item.txt;
-          btn.onclick = function(){ pick(item.key); };
-          optsBox.appendChild(btn);
-        });
-        el.appendChild(optsBox);
+        document.getElementById("app").innerHTML =
+          '<div style="margin-bottom:8px;">'+dots()+'</div><h3 style="font-size:14.5px;margin:8px 0 10px;line-height:1.35;">'+q.t+'</h3>' + optsHtml;
       }
-
-      function pick(k){
+      function pick(idx){
+        var k = Q[cur].o[idx][1];
         sc[k]++; cur++;
         if(cur>=Q.length){ result(); } else { renderQ(); }
       }
-
       function result(){
         var keys = ["autenticidade", "escuta", "disciplina", "iniciativa"];
         var w = keys[0], maxScore = sc[w];
         for(var i=1; i<keys.length; i++){
           var k = keys[i];
-          if(sc[k] > maxScore){ maxScore = sc[k]; w = k; }
+          if(sc[k] > maxScore){
+            maxScore = sc[k];
+            w = k;
+          }
         }
         var r=R[w];
-        var el = document.getElementById("app");
-        if(!el) return;
-        el.innerHTML =
+        document.getElementById("app").innerHTML =
           '<div class="badge" style="background:'+r.c+';">'+r.n.charAt(0)+'</div>'+
-          '<h2 style="margin:2px 0 4px;font-size:22px;font-family:\'Bangers\', cursive;letter-spacing:1px;color:'+r.c+';-webkit-text-stroke:0.5px #171512;">'+r.n+'</h2>' +
-          '<p style="color:#555;font-weight:bold;font-size:12px;margin:0 0 10px;">Desenvolvido no '+r.e+'</p>' +
-          '<p style="text-align:left;background:#F4EFE1;padding:10px 12px;border-radius:8px;border-left:4px solid '+r.c+';font-size:13.5px;line-height:1.45;margin:0;">'+r.d+'</p>' +
-          '<button class="btn" id="btnRestart">Refazer Quiz</button>';
-
-        document.getElementById("btnRestart").onclick = restart;
+          '<h2 style="margin:2px 0 4px;font-size:22px;font-family:\\'Bangers\\', cursive;letter-spacing:1px;color:'+r.c+';-webkit-text-stroke:0.5px #171512;">'+r.n+'</h2><p style="color:#666;font-weight:bold;font-size:11.5px;margin:0 0 8px;">Desenvolvido no '+r.e+'</p>' +
+          '<p style="text-align:left;background:#F4EFE1;padding:8px 10px;border-radius:6px;border-left:3px solid #171512;font-size:12.5px;line-height:1.4;margin:0;">'+r.d+'</p>' +
+          '<button class="btn" onclick="restart()">Refazer Quiz</button>';
       }
-
-      function restart(){
-        cur=0; sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0}; renderQ();
-      }
-
+      function restart(){cur=0;sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};renderQ();}
       renderQ();
     <\/script>
     </body></html>`,
@@ -1989,24 +1969,22 @@
       <\/script>
     </body></html>`,
 
-    batalha: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    batalha: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <style>
       *{box-sizing:border-box;}
-      html,body{width:100%;height:100%;margin:0;padding:0;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-      body{font-family:'Comic Neue', cursive, sans-serif;font-weight:700;background:#171512;color:#fff;margin:0;padding:16px 12px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100%;}
-      .box{background:#23201d;border:3.5px solid #F4C531;border-radius:18px;box-shadow:4px 4px 0 #000;padding:16px;max-width:390px;width:100%;margin:0 auto;}
-      h1{color:#FF5A79;font-size:22px;letter-spacing:1px;margin:0 0 10px;text-transform:uppercase;font-family:'Bangers', cursive;-webkit-text-stroke:0.5px #000;}
-      .hp-bar{background:#444;border-radius:12px;height:18px;overflow:hidden;margin-bottom:10px;border:2.5px solid #fff;}
+      body{font-family:'Comic Neue', cursive, sans-serif;font-weight:700;background:#171512;color:#fff;margin:0;padding:12px;text-align:center;}
+      .box{background:#23201d;border:3.5px solid #F4C531;border-radius:14px;padding:14px;max-width:390px;margin:0 auto;}
+      h1{color:#FF5A79;font-size:20px;letter-spacing:1px;margin:0 0 8px;text-transform:uppercase;font-family:'Bangers', cursive;-webkit-text-stroke:0.5px #000;}
+      .hp-bar{background:#444;border-radius:10px;height:16px;overflow:hidden;margin-bottom:8px;border:2px solid #fff;}
       .hp-fill{background:#E63946;height:100%;width:100%;transition:width .2s;}
-      .boss-sprite{font-size:48px;margin:4px 0;}
-      .prompt{background:#fff;color:#171512;padding:12px 14px;border-radius:10px;border:2.5px solid #171512;font-size:14px;margin-bottom:12px;line-height:1.4;box-shadow:2px 2px 0 #000;}
-      .grid{display:grid;grid-template-columns:1fr;gap:8px;}
-      .btn-atk{padding:12px 10px;border:2.5px solid #171512;border-radius:10px;font-family:'Comic Neue', cursive;font-weight:700;font-size:13px;cursor:pointer;color:#fff;text-align:left;line-height:1.35;box-shadow:2.5px 2.5px 0 #000;transition:transform 0.1s;}
-      .btn-atk:active{transform:translate(2px,2px);box-shadow:none;}
-      .status{font-size:14px;font-family:'Bangers', cursive;letter-spacing:0.8px;margin-top:10px;min-height:18px;color:#F4C531;text-transform:uppercase;}
+      .boss-sprite{font-size:44px;margin:4px 0;}
+      .prompt{background:#fff;color:#171512;padding:10px 12px;border-radius:8px;font-weight:900;font-size:13px;margin-bottom:10px;line-height:1.4;}
+      .grid{display:grid;grid-template-columns:1fr;gap:7px;}
+      .btn-atk{padding:10px 8px;border:2px solid #171512;border-radius:8px;font-family:'Comic Neue', cursive;font-weight:700;font-size:12px;cursor:pointer;color:#fff;text-align:left;line-height:1.35;box-shadow:2px 2px 0 #000;}
+      .status{font-size:14px;font-family:'Bangers', cursive;letter-spacing:0.8px;margin-top:8px;min-height:16px;color:#F4C531;text-transform:uppercase;}
     </style></head><body>
     <div class="box">
       <h1>Devorador de Sons</h1>
