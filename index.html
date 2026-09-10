@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>SuperSonoros — Guitarríssima</title>
 
+<!-- GOOGLE FONTS: Bangers & Comic Neue (Bold) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
@@ -103,7 +104,6 @@
     }
   }
 
-  /* INSÍGNIA SEM BOX EM VOLTA */
   .prologue-img-wrap{
     width:clamp(90px, 22vw, 130px); height:clamp(90px, 22vw, 130px);
     flex-shrink:0; display:flex; align-items:center; justify-content:center;
@@ -185,7 +185,6 @@
     transition:box-shadow .12s ease;
   }
   
-  /* SILHUETAS SEM BOX EM VOLTA */
   .villain-avatar-box{
     width:80px; height:auto; min-height:110px; background:transparent; border:none; border-radius:0;
     display:flex; align-items:center; justify-content:center; flex-shrink:0; padding:0;
@@ -338,19 +337,44 @@
   .arrow{font-size:20px; font-weight:bold; color:var(--ink); transition:transform .12s ease; flex-shrink:0;}
   .item-card:hover .arrow{transform:translateX(3px);}
 
-  .ens-alert-badge {
-    display: inline-block;
-    font-family: 'Bangers', Impact, sans-serif;
+  .ens-header-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  @media (min-width: 720px) {
+    .ens-header-card {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  .ens-info-callout {
+    background: #FFF9E6;
+    border: 2.5px solid var(--ink);
+    border-left: 6px solid var(--yellow);
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 3px 3px 0 var(--ink);
     font-size: 13px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    background: var(--yellow);
+    line-height: 1.4;
     color: var(--ink);
-    border: 2px solid var(--ink);
-    border-radius: 8px;
-    padding: 3px 10px;
-    margin-top: 8px;
-    box-shadow: 2px 2px 0 var(--ink);
+    max-width: 380px;
+  }
+
+  .silhouette-card{
+    display:flex; gap:14px; align-items:center;
+    background: #FFF9E6; color: var(--ink);
+    border-radius:14px; padding:12px 14px; border:3px solid var(--ink); box-shadow:3.5px 3.5px 0 var(--ink);
+    margin-bottom:16px;
+  }
+  .silhouette-avatar{
+    width:68px; height:85px; background:transparent; border-radius:0; display:flex; align-items:center; justify-content:center;
+    border:none; flex-shrink:0; padding:0;
+  }
+  .silhouette-img{
+    width:100%; height:100%; object-fit:contain; display:block;
+    filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.15));
   }
 
   .btn{
@@ -396,7 +420,7 @@
   }
   .lineup-name{flex:1; font-weight:700;}
 
-  .info-item{display:block; margin-bottom:10px; font-size:13.5px; line-height:1.45;}
+  .info-item{display:block; margin-bottom:8px; font-size:13.5px; line-height:1.45;}
   .info-item:last-child{margin-bottom:0;}
 
   .recap-box{background:#F4EFE1; border-left:4px solid var(--ink); border-radius:8px; padding:14px; font-size:13.5px; line-height:1.5; color:#333;}
@@ -406,17 +430,6 @@
     color:#fff; padding:4px 12px; border-radius:999px; border:2px solid var(--ink);
     text-shadow:1px 1px 0 rgba(0,0,0,0.35);
   }
-
-  .silhouette-card{
-    display:flex; gap:12px; align-items:center; background:#171512; color:#fff;
-    border-radius:14px; padding:12px 14px; border:3px solid var(--ink); box-shadow:3.5px 3.5px 0 var(--ink);
-    margin-bottom:16px;
-  }
-  .silhouette-avatar{
-    width:64px; height:80px; background:transparent; border-radius:0; display:flex; align-items:center; justify-content:center;
-    border:none; flex-shrink:0; padding:0; overflow:hidden;
-  }
-  .silhouette-img{width:100%; height:100%; object-fit:contain; display:block;}
 
   .ens-mission-card{
     background:#FFF9E6; border:2.5px solid var(--ink); border-radius:12px;
@@ -532,28 +545,25 @@
     display:flex; gap:14px; align-items:center; margin-bottom:14px;
     border-bottom:2px dashed #ddd; padding-bottom:12px;
   }
-  .dossier-header.boss-header{
-    flex-direction:column;
-    align-items:stretch;
-    gap:10px;
-  }
-  @media(min-width:480px){
-    .dossier-header.boss-header{
-      flex-direction:row;
-      align-items:center;
-    }
-  }
 
   .dossier-avatar{
     width:85px; height:105px; background:transparent; border:none; border-radius:0;
     display:flex; align-items:center; justify-content:center; padding:0; flex-shrink:0;
   }
-  .dossier-avatar.boss-avatar{
-    width:100%; height:140px; background:transparent; border:none;
-    padding:0;
-  }
-  @media(min-width:480px){
-    .dossier-avatar.boss-avatar{width:180px; height:120px;}
+
+  .boss-mystery-avatar {
+    width: 80px; height: 90px;
+    background: #171512;
+    border: 2.5px dashed var(--yellow);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--yellow);
+    font-family: 'Bangers', Impact, sans-serif;
+    font-size: 42px;
+    box-shadow: 2.5px 2.5px 0 var(--ink);
+    flex-shrink: 0;
   }
 
   .dossier-section{
@@ -581,6 +591,7 @@
   }
   .btn-close-bottom:active{transform:translate(2px, 2px); box-shadow:none;}
 
+  /* SESSÕES: BLOQUEIO */
   .common-blur-wrap {
     position: relative;
     border-radius: 14px;
@@ -684,12 +695,12 @@
     <div class="tab" id="tabBtnJogos" onclick="switchTab('jogos')">Joguinhos</div>
   </div>
 
-  <!-- ===================== 1. HISTÓRIA (LIMPO E SEM BOX DENTRO DE BOX) ===================== -->
+  <!-- ===================== 1. HISTÓRIA ===================== -->
   <div id="view-historia" class="view active">
     
     <div class="story-loose-wrap">
       
-      <!-- INÍCIO: INSÍGNIA DIRETO NO CARD SEM MOLDURA INTERNA -->
+      <!-- INÍCIO -->
       <div class="comic-prologue-card">
         <span class="comic-tag">Início · O Chamado da Liga</span>
         <div class="prologue-img-wrap">
@@ -708,7 +719,7 @@
         <p id="threatSubtitle" style="font-size:13.5px; color:#FFFFFF; margin:6px 0 0; text-shadow:1.5px 1.5px 0 rgba(0,0,0,0.5);"></p>
       </div>
 
-      <!-- SILHUETAS DIRETAS NO CARD DE CADA DOSSIÊ -->
+      <!-- DOSSIÊS -->
       <div class="comic-villain-strip">
         
         <!-- VILÃO 1 -->
@@ -863,30 +874,34 @@
       </div>
     </div>
 
+    <!-- TELA DE DETALHES DO ENSAIO -->
     <div id="view-ensaio-detail" class="hidden">
       <button class="back-btn" onclick="goEnsaiosHome()">← Voltar aos Ensaios</button>
 
       <div class="panel">
-        <h1 id="ensTitle" style="font-size:26px;text-align:left;color:var(--yellow);margin:0 0 4px;">Ensaio</h1>
-        <p class="lede" style="color:#666;text-align:left;margin-bottom:8px;max-width:none;" id="ensDate"></p>
-
-        <div class="info-item" style="margin-bottom:6px;">
-          <span id="ensLocation"></span>
+        <div class="ens-header-card">
+          <div>
+            <h1 id="ensTitle" style="font-size:26px;text-align:left;color:var(--yellow);margin:0 0 4px;">Ensaio</h1>
+            <p class="lede" style="color:#666;text-align:left;margin-bottom:6px;max-width:none;" id="ensDate"></p>
+            <div class="info-item" style="margin-bottom:0;">
+              <span id="ensLocation"></span>
+            </div>
+          </div>
+          <div id="ensSpecialBadgeBox"></div>
         </div>
-
-        <div id="ensSpecialBadgeBox"></div>
       </div>
 
       <div class="grid-detail-cols">
         <div class="panel" style="margin-bottom:0;">
           
+          <!-- SILHUETA COM ALTO CONTRASTE -->
           <div class="silhouette-card">
             <div class="silhouette-avatar">
               <img id="ensVillainImg" src="" alt="Silhueta do Vilão" class="silhouette-img" />
             </div>
             <div>
-              <div style="font-family:'Bangers', Impact, sans-serif; font-size:18px; letter-spacing:1px; color:var(--yellow); text-transform:uppercase;" id="ensVillainTitle">Ameaça</div>
-              <div id="ensVillainSubtitle" style="font-size:12.5px; color:#ccc; line-height:1.4; margin-top:2px;"></div>
+              <div style="font-family:'Bangers', Impact, sans-serif; font-size:19px; letter-spacing:1px; color:var(--ink); text-transform:uppercase;" id="ensVillainTitle">Ameaça</div>
+              <div id="ensVillainSubtitle" style="font-size:13px; color:#444; line-height:1.4; margin-top:2px;"></div>
             </div>
           </div>
 
@@ -1167,10 +1182,7 @@
     vBoss: {
       code: "CHEFÃO FINAL",
       color: "#E63946",
-      img: "vilao5.png",
       isBoss: true,
-      avatarBg: "transparent",
-      invertImg: false,
       quem: "A manifestação do esvaziamento musical. Cresce e se expande quando as canções perdem o cuidado, o equilíbrio e a intenção de quem as executa.",
       motivacao: "Consumir melodias frágeis e descuidadas, manipulando silenciosamente os comportamentos anteriores para fragilizar o grupo.",
       posturas: ["Alimenta-se da falta de foco, da imitação sem alma e da renúncia no momento decisivo."],
@@ -1186,21 +1198,29 @@
     const body = document.getElementById("villainModalBody");
     
     let posturasHtml = v.posturas.map(p => "<li>" + p + "</li>").join("");
-    let imgFilter = v.invertImg ? "filter:invert(1);" : "";
-    let avatarClass = v.isBoss ? "dossier-avatar boss-avatar" : "dossier-avatar";
-    let headerClass = v.isBoss ? "dossier-header boss-header" : "dossier-header";
 
-    body.innerHTML = 
-      '<div class="dossier-stamp">ARQUIVO CONFIDENCIAL // LIGA SUPERSONOROS</div>' +
-      '<div class="' + headerClass + '">' +
-        '<div class="' + avatarClass + '" style="background:' + v.avatarBg + ';">' +
-          '<img src="' + v.img + '" alt="' + v.code + '" style="width:100%;height:100%;object-fit:contain;' + imgFilter + '" />' +
+    let avatarHtml = "";
+    if (v.isBoss) {
+      avatarHtml = 
+        '<div class="boss-mystery-avatar">?</div>' +
+        '<div>' +
+          '<h2 style="font-family:\'Bangers\', Impact, sans-serif;font-size:26px;margin:0 0 2px;color:var(--red);-webkit-text-stroke:0.5px var(--ink);">' + v.code + '</h2>' +
+          '<div style="font-size:12px;font-weight:900;color:var(--red);letter-spacing:0.5px;">SINAL CODIFICADO // IDENTIDADE SOB SIGILO ABSOLUTO</div>' +
+        '</div>';
+    } else {
+      avatarHtml = 
+        '<div class="dossier-avatar">' +
+          '<img src="' + v.img + '" alt="' + v.code + '" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.15));" />' +
         '</div>' +
         '<div>' +
           '<h2 style="font-family:\'Bangers\', Impact, sans-serif;font-size:26px;margin:0 0 2px;color:' + v.color + ';-webkit-text-stroke:0.5px var(--ink);">' + v.code + '</h2>' +
           '<div style="font-size:12px;color:#666;">Status: Identidade sob sigilo</div>' +
-        '</div>' +
-      '</div>' +
+        '</div>';
+    }
+
+    body.innerHTML = 
+      '<div class="dossier-stamp">ARQUIVO CONFIDENCIAL // LIGA SUPERSONOROS</div>' +
+      '<div class="dossier-header">' + avatarHtml + '</div>' +
       '<div class="dossier-section">' +
         '<div class="dossier-section-title" style="color:var(--ink);">Comportamento Detectado:</div>' +
         '<p style="margin:0;">' + v.quem + '</p>' +
@@ -1250,7 +1270,7 @@
       villain:"Vilão 1", 
       img:"vilao1.png", 
       metaDesc:"Definição do nome oficial da banda e escolha da música",
-      specialNotice: "🎟️ Início das vendas de ingressos do espetáculo",
+      calloutText: "🎟️ <strong>Venda de ingressos do espetáculo:</strong><br>Presencialmente na sede das 8h às 18h.",
       agenda: 
         '<div class="ens-mission-card">' +
           '<div style="font-family:\'Bangers\', cursive; font-size:16px; color:var(--purple); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
@@ -1278,7 +1298,7 @@
       villain:"Vilão 2", 
       img:"vilao2.png", 
       metaDesc:"Planejamento dos figurinos e foto oficial da banda",
-      specialNotice: "📸 Dia da foto oficial da banda",
+      calloutText: "📸 <strong>Atenção:</strong><br>Dia do registro da foto oficial individual e da banda!",
       agenda: 
         '<div class="ens-mission-card">' +
           '<div style="font-family:\'Bangers\', cursive; font-size:16px; color:var(--orange); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
@@ -1306,7 +1326,7 @@
       villain:"Vilão 3", 
       img:"vilao3.png", 
       metaDesc:"Performance e validação final dos figurinos",
-      specialNotice: null,
+      calloutText: null,
       agenda: 
         '<div class="ens-mission-card">' +
           '<div style="font-family:\'Bangers\', cursive; font-size:16px; color:var(--orange); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
@@ -1332,7 +1352,7 @@
       villain:"Vilão 4", 
       img:"vilao4.png", 
       metaDesc:"Movimentação, posicionamento e marcação de palco",
-      specialNotice: null,
+      calloutText: null,
       agenda: 
         '<div class="ens-mission-card">' +
           '<div style="font-family:\'Bangers\', Impact, sans-serif; font-size:16px; color:var(--green); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
@@ -1378,8 +1398,8 @@
     document.getElementById("ensVillainTitle").textContent = "Ameaça: " + e.villain;
     
     const badgeBox = document.getElementById("ensSpecialBadgeBox");
-    if (e.specialNotice) {
-      badgeBox.innerHTML = '<span class="ens-alert-badge">' + e.specialNotice + '</span>';
+    if (e.calloutText) {
+      badgeBox.innerHTML = '<div class="ens-info-callout">' + e.calloutText + '</div>';
       badgeBox.style.display = "block";
     } else {
       badgeBox.innerHTML = "";
@@ -1465,25 +1485,32 @@
     window.scrollTo(0,0);
   }
 
+  /* JOGUINHOS COM SCRIPT ROBUSTO E FONTES CERTAS */
   const GAMES = {
-    quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><style>
+    quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
       *{box-sizing:border-box;}
       html,body{width:100%;height:100%;margin:0;padding:0;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-      body{font-family:'Comic Neue',Impact,'Arial Black',sans-serif;background:#2C4E9B;color:#171512;padding:14px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;}
-      .box-wrap{width:100%;max-width:380px;text-align:center;}
-      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;margin:0 0 10px;text-transform:uppercase;font-family:'Bangers',Impact,sans-serif;}
-      .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:14px;text-align:center;}
-      .dot{width:22px;height:22px;border-radius:50%;border:2px solid #171512;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:bold;background:#fff;margin:0 2px;}
+      body{font-family:'Comic Neue', cursive, sans-serif;font-weight:700;background:#2C4E9B;color:#171512;padding:16px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;}
+      .box-wrap{width:100%;max-width:390px;text-align:center;}
+      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;-webkit-text-stroke:1px #171512;font-size:22px;letter-spacing:1px;margin:0 0 12px;text-transform:uppercase;font-family:'Bangers', cursive;}
+      .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:18px;box-shadow:4px 4px 0 #171512;padding:16px;text-align:center;}
+      .dot{width:24px;height:24px;border-radius:50%;border:2px solid #171512;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:bold;background:#fff;margin:0 3px;font-family:'Bangers', cursive;}
       .dot.done{background:#E63946;color:#fff;}
-      .opt{text-align:left;background:#fff;border:2px solid #171512;border-radius:8px;padding:9px 12px;margin-bottom:7px;font-weight:700;font-size:13px;cursor:pointer;line-height:1.3;}
+      .q-title{font-size:15px;line-height:1.4;margin:10px 0 12px;font-weight:700;}
+      .opt{text-align:left;background:#fff;border:2.5px solid #171512;border-radius:10px;padding:10px 12px;margin-bottom:8px;font-weight:700;font-size:13.5px;cursor:pointer;line-height:1.35;box-shadow:2px 2px 0 #171512;transition:transform 0.1s;}
       .opt:last-child{margin-bottom:0;}
-      .opt:active{background:#F4C531;}
-      .btn{width:100%;padding:10px;font-weight:bold;border:2.5px solid #171512;border-radius:8px;background:#F4C531;cursor:pointer;font-size:13px;text-transform:uppercase;margin-top:10px;font-family:'Bangers',Impact,sans-serif;}
-      .badge{width:64px;height:64px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#fff;border:3px solid #171512;}
+      .opt:active{background:#F4C531;transform:translate(2px,2px);box-shadow:none;}
+      .btn{width:100%;padding:12px;font-weight:bold;border:3px solid #171512;border-radius:12px;background:#F4C531;cursor:pointer;font-size:16px;letter-spacing:1px;text-transform:uppercase;margin-top:12px;font-family:'Bangers', cursive;box-shadow:3px 3px 0 #171512;}
+      .btn:active{transform:translate(2px,2px);box-shadow:none;}
+      .badge{width:70px;height:70px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:900;color:#fff;border:3.5px solid #171512;box-shadow:3px 3px 0 #171512;font-family:'Bangers', cursive;}
     </style></head><body>
     <div class="box-wrap">
       <h1>QUAL É O SEU SUPERPODER?</h1>
-      <div class="panel" id="app"></div>
+      <div class="panel" id="app">Carregando perguntas...</div>
     </div>
     <script>
       var Q=[
@@ -1542,13 +1569,14 @@
       var cur=0, sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};
       function dots(){var h="";for(var i=0;i<Q.length;i++){h+='<span class="dot'+(i<cur?" done":"")+'">'+(i+1)+'</span>';}return h;}
       function renderQ(){
+        var el = document.getElementById("app");
+        if(!el) return;
         var q=Q[cur];
         var optsHtml = "";
         for(var i=0; i<q.o.length; i++){
           optsHtml += '<div class="opt" onclick="pick(\\'' + q.o[i][1] + '\\')">' + q.o[i][0] + '</div>';
         }
-        document.getElementById("app").innerHTML =
-          '<div style="margin-bottom:8px;">'+dots()+'</div><h3 style="font-size:14px;margin:8px 0 10px;line-height:1.35;">'+q.t+'</h3>' + optsHtml;
+        el.innerHTML = '<div style="margin-bottom:8px;">'+dots()+'</div><div class="q-title">'+q.t+'</div>' + optsHtml;
       }
       function pick(k){
         sc[k]++; cur++;
@@ -1559,20 +1587,24 @@
         var w = keys[0], maxScore = sc[w];
         for(var i=1; i<keys.length; i++){
           var k = keys[i];
-          if(sc[k] > maxScore){
-            maxScore = sc[k];
-            w = k;
-          }
+          if(sc[k] > maxScore){ maxScore = sc[k]; w = k; }
         }
         var r=R[w];
-        document.getElementById("app").innerHTML =
+        var el = document.getElementById("app");
+        if(!el) return;
+        el.innerHTML =
           '<div class="badge" style="background:'+r.c+';">'+r.n.charAt(0)+'</div>'+
-          '<h2 style="margin:2px 0 4px;font-size:18px;">'+r.n+'</h2><p style="color:#666;font-weight:bold;font-size:11.5px;margin:0 0 8px;">Desenvolvido no '+r.e+'</p>' +
-          '<p style="text-align:left;background:#F4EFE1;padding:8px 10px;border-radius:6px;border-left:3px solid #171512;font-size:12.5px;line-height:1.4;margin:0;">'+r.d+'</p>' +
+          '<h2 style="margin:2px 0 4px;font-size:22px;font-family:\'Bangers\', cursive;letter-spacing:1px;color:'+r.c+';-webkit-text-stroke:0.5px #171512;">'+r.n+'</h2>' +
+          '<p style="color:#555;font-weight:bold;font-size:12px;margin:0 0 10px;">Desenvolvido no '+r.e+'</p>' +
+          '<p style="text-align:left;background:#F4EFE1;padding:10px 12px;border-radius:8px;border-left:4px solid '+r.c+';font-size:13.5px;line-height:1.45;margin:0;">'+r.d+'</p>' +
           '<button class="btn" onclick="restart()">Refazer Quiz</button>';
       }
       function restart(){cur=0;sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};renderQ();}
-      renderQ();
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', renderQ);
+      } else {
+        renderQ();
+      }
     <\/script>
     </body></html>`,
 
@@ -1928,19 +1960,24 @@
       <\/script>
     </body></html>`,
 
-    batalha: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><style>
+    batalha: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
       *{box-sizing:border-box;}
       html,body{width:100%;height:100%;margin:0;padding:0;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-      body{font-family:'Comic Neue',Impact,'Arial Black',sans-serif;background:#171512;color:#fff;margin:0;padding:12px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100%;}
-      .box{background:#23201d;border:3.5px solid #F4C531;border-radius:14px;padding:14px;max-width:390px;width:100%;margin:0 auto;}
-      h1{color:#FF5A79;font-size:16px;margin:0 0 8px;text-transform:uppercase;font-family:'Bangers',Impact,sans-serif;}
-      .hp-bar{background:#444;border-radius:10px;height:16px;overflow:hidden;margin-bottom:8px;border:2px solid #fff;}
+      body{font-family:'Comic Neue', cursive, sans-serif;font-weight:700;background:#171512;color:#fff;margin:0;padding:16px 12px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100%;}
+      .box{background:#23201d;border:3.5px solid #F4C531;border-radius:18px;box-shadow:4px 4px 0 #000;padding:16px;max-width:390px;width:100%;margin:0 auto;}
+      h1{color:#FF5A79;font-size:22px;letter-spacing:1px;margin:0 0 10px;text-transform:uppercase;font-family:'Bangers', cursive;-webkit-text-stroke:0.5px #000;}
+      .hp-bar{background:#444;border-radius:12px;height:18px;overflow:hidden;margin-bottom:10px;border:2.5px solid #fff;}
       .hp-fill{background:#E63946;height:100%;width:100%;transition:width .2s;}
-      .boss-sprite{font-size:44px;margin:4px 0;}
-      .prompt{background:#fff;color:#171512;padding:10px 12px;border-radius:8px;font-weight:900;font-size:12.5px;margin-bottom:10px;line-height:1.4;}
-      .grid{display:grid;grid-template-columns:1fr;gap:7px;}
-      .btn-atk{padding:10px 8px;border:2px solid #171512;border-radius:8px;font-weight:900;font-size:11.5px;cursor:pointer;color:#fff;text-align:left;line-height:1.3;}
-      .status{font-size:12px;font-weight:bold;margin-top:8px;min-height:16px;color:#F4C531;}
+      .boss-sprite{font-size:48px;margin:4px 0;}
+      .prompt{background:#fff;color:#171512;padding:12px 14px;border-radius:10px;border:2.5px solid #171512;font-size:14px;margin-bottom:12px;line-height:1.4;box-shadow:2px 2px 0 #000;}
+      .grid{display:grid;grid-template-columns:1fr;gap:8px;}
+      .btn-atk{padding:12px 10px;border:2.5px solid #171512;border-radius:10px;font-family:'Comic Neue', cursive;font-weight:700;font-size:13px;cursor:pointer;color:#fff;text-align:left;line-height:1.35;box-shadow:2.5px 2.5px 0 #000;transition:transform 0.1s;}
+      .btn-atk:active{transform:translate(2px,2px);box-shadow:none;}
+      .status{font-size:14px;font-family:'Bangers', cursive;letter-spacing:0.8px;margin-top:10px;min-height:18px;color:#F4C531;text-transform:uppercase;}
     </style></head><body>
     <div class="box">
       <h1>Devorador de Sons</h1>
